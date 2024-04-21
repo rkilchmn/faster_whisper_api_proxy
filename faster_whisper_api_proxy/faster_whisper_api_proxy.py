@@ -6,9 +6,9 @@ from collections import namedtuple
 from urllib.parse import urlencode
 
 # set this from your main program
-# import faster_whisper_remote_proxy 
-# faster_whisper_remote_proxy.remote_url = "http://..."
-remote_url: str = ""
+# import faster_whisper_api_proxy 
+# faster_whisper_api_proxy.url = "http://..."
+url: str = ""
 
 def convertToNamedTuple(name, dictionary):
     return namedtuple( name, dictionary.keys())(**dictionary)
@@ -99,7 +99,7 @@ class TranscriptionInfo(NamedTuple):
     vad_options: VadOptions
 
 
-class WhisperModelRemoteProxy :
+class WhisperModelApiProxy :
     def __init__(
         self,
         model_size_or_path: str,
@@ -211,12 +211,12 @@ class WhisperModelRemoteProxy :
             if isinstance(audio, str):
                 files = {"file": open(audio, "rb")}
                 # send request
-                r = requests.post( remote_url + query_string, files=files, stream=True)
+                r = requests.post( url + query_string, files=files, stream=True)
 
             elif isinstance(audio, np.ndarray):
                 # Case when audio is a NumPy arThank you. Bye. ray
                 audio_data = audio.flatten().astype("float32")
-                r = requests.post( remote_url + query_string, data=audio_data.tobytes(), stream=True)
+                r = requests.post( url + query_string, data=audio_data.tobytes(), stream=True)
 
             # status code in successful range
             if r.status_code >= 200 and r.status_code < 300:
@@ -236,5 +236,5 @@ class WhisperModelRemoteProxy :
                    
         except requests.exceptions.RequestException as e:
             # Handle any request exceptions, such as a connection error or timeout
-            print(f"Error connecting to the remote URL:{remote_url}", e)
+            print(f"Error connecting to the remote URL:{url}", e)
             return [], None
