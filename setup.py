@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='faster_whisper_api_proxy',  # Name of your module
-    version='1.0.0',    # Version number
+    version='1.0.1',    # Version number
     description='a python module that is a drop in replacement for faster_whisper but calls a remote faster_whisper implementation via API',
     packages=['faster_whisper_api_proxy'],  # List of packages to include
     url='https://github.com/rkilchmn/faster_whisper_api_proxy',
