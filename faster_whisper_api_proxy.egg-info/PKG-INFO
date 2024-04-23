@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: faster-whisper-api-proxy
-Version: 1.0.0
+Version: 1.0.1
 Summary: a python module that is a drop in replacement for faster_whisper but calls a remote faster_whisper implementation via API
 Home-page: https://github.com/rkilchmn/faster_whisper_api_proxy
 Author: Roger Kilchenmann
