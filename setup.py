@@ -11,8 +11,7 @@ setup(
     author='Roger Kilchenmann',
     author_email='roger@kilchenmann.net',
     keywords=['AI','faster_whisper','transcribe','natural language','speech recognition','api','remote'],
-    install_requires=[ 
-        'faster_whisper_api_proxy',
+    install_requires=[
         'numpy',
         'requests'
     ],     
