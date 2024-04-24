@@ -8,8 +8,7 @@ HERE = pathlib.Path(__file__).parent
 
 README = (HERE / "README.md").read_text()
 
-
-def read_version(fname="src/version.py"):
+def read_version(fname="src/faster-whisper-api-proxy/version.py"):
     exec(compile(open(fname, encoding="utf-8").read(), fname, "exec"))
     return locals()["__version__"]
 
@@ -24,7 +23,7 @@ setup(
     author='Roger Kilchenmann',
     author_email='roger@kilchenmann.net',
     keywords=['AI','faster_whisper','transcribe','natural language','speech recognition','api','remote'],
-    packages=["src"],
+    packages=["src/faster-whisper-api-proxy"],
     include_package_data=True,
     install_requires=[
         str(r)

@@ -1,1 +1,1 @@
-src
+src/faster-whisper-api-proxy

@@ -6,5 +6,5 @@ faster_whisper_api_proxy.egg-info/SOURCES.txt
 faster_whisper_api_proxy.egg-info/dependency_links.txt
 faster_whisper_api_proxy.egg-info/requires.txt
 faster_whisper_api_proxy.egg-info/top_level.txt
-src/proxy.py
-src/version.py
+src/faster-whisper-api-proxy/proxy.py
+src/faster-whisper-api-proxy/version.py
