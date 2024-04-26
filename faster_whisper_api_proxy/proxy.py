@@ -156,6 +156,9 @@ class WhisperModelApiProxy :
         hallucination_silence_threshold: Optional[float] = None,
     ) -> Tuple[Iterable[Segment], TranscriptionInfo]:
         
+        # use module url variable
+        global url 
+        
         def segment_generator(self, lines):
             # Iterate over the response content as it arrives
              for line in lines:
