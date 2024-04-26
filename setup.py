@@ -19,7 +19,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     version=read_version(),
-    url='https://github.com/rkilchmn/faster-whisper-api-proxy',
+    url='https://github.com/rkilchmn/faster_whisper_api_proxy',
     author='Roger Kilchenmann',
     author_email='roger@kilchenmann.net',
     keywords=['AI','faster_whisper','transcribe','natural language','speech recognition','api','remote'],
