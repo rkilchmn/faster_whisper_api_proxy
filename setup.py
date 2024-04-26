@@ -1,6 +1,6 @@
 # setup.py
 import pathlib
-from setuptools import setup
+from setuptools import setup, find_packages
 import pkg_resources
 import os
 
@@ -14,16 +14,21 @@ def read_version(fname="src/faster-whisper-api-proxy/version.py"):
 
 
 setup(
-    name='faster_whisper_api_proxy',  # Name of your module
+    name='faster-whisper-api-proxy',  # Name of your module
     description='a python module that is a drop in replacement for faster_whisper but calls a remote faster_whisper implementation via API',
     long_description=README,
     long_description_content_type="text/markdown",
     version=read_version(),
-    url='https://github.com/rkilchmn/faster_whisper_api_proxy',
+    url='https://github.com/rkilchmn/faster-whisper-api-proxy',
     author='Roger Kilchenmann',
     author_email='roger@kilchenmann.net',
     keywords=['AI','faster_whisper','transcribe','natural language','speech recognition','api','remote'],
-    packages=["src/faster-whisper-api-proxy"],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    packages=find_packages(where='src/*'),
     include_package_data=True,
     install_requires=[
         str(r)
