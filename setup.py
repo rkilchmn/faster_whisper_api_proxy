@@ -8,7 +8,7 @@ HERE = pathlib.Path(__file__).parent
 
 README = (HERE / "README.md").read_text()
 
-def read_version(fname="src/faster-whisper-api-proxy/version.py"):
+def read_version(fname="faster-whisper-api-proxy/version.py"):
     exec(compile(open(fname, encoding="utf-8").read(), fname, "exec"))
     return locals()["__version__"]
 
@@ -28,7 +28,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(where='src/*'),
+    packages=find_packages(where='faster-whisper-api-proxy/*'),
     include_package_data=True,
     install_requires=[
         str(r)
