@@ -1,6 +1,9 @@
 MANIFEST.in
 README.md
 setup.py
+faster-whisper-api-proxy/__init__.py
+faster-whisper-api-proxy/proxy.py
+faster-whisper-api-proxy/version.py
 faster_whisper_api_proxy.egg-info/PKG-INFO
 faster_whisper_api_proxy.egg-info/SOURCES.txt
 faster_whisper_api_proxy.egg-info/dependency_links.txt

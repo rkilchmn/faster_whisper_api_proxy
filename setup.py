@@ -28,7 +28,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(where='faster-whisper-api-proxy/*'),
+    packages=find_packages(),
     include_package_data=True,
     install_requires=[
         str(r)
