@@ -8,13 +8,13 @@ HERE = pathlib.Path(__file__).parent
 
 README = (HERE / "README.md").read_text()
 
-def read_version(fname="faster-whisper-api-proxy/version.py"):
+def read_version(fname="faster_whisper_api_proxy/version.py"):
     exec(compile(open(fname, encoding="utf-8").read(), fname, "exec"))
     return locals()["__version__"]
 
 
 setup(
-    name='faster-whisper-api-proxy',  # Name of your module
+    name='faster_whisper_api_proxy',  # Name of your module
     description='a python module that is a drop in replacement for faster_whisper but calls a remote faster_whisper implementation via API',
     long_description=README,
     long_description_content_type="text/markdown",
