@@ -1,3 +1,5 @@
+
+import os
 from typing import BinaryIO, Iterable, List, NamedTuple, Optional, Tuple, Union
 import numpy as np
 import requests
@@ -5,13 +7,20 @@ import json
 from collections import namedtuple
 from urllib.parse import urlencode
 
-# set this from your main program
-# import faster_whisper_api_proxy 
-# faster_whisper_api_proxy.url = "http://..."
-url: str = ""
+global_api_base: str = os.environ.get("FASTERWHSIPER_API_BASE", "http://localhost/v0")
+global_api_key_path: Optional[str] = os.environ.get("FASTERWHSIPER_API_KEY_PATH")
 
 def convertToNamedTuple(name, dictionary):
     return namedtuple( name, dictionary.keys())(**dictionary)
+
+def set_proxy_paramters(api_base: str = None, api_key_path: str = None):
+    global global_api_base, global_api_key_path
+
+    if api_base is not None:
+        global_api_base = api_base 
+
+    if api_key_path is not None:
+        global_api_key_path = api_key_path    
 
 # instead "from faster_whisper.vad import VadOptions" to prevent installing all dependencies
 class VadOptions(NamedTuple):
@@ -156,9 +165,6 @@ class WhisperModelApiProxy :
         hallucination_silence_threshold: Optional[float] = None,
     ) -> Tuple[Iterable[Segment], TranscriptionInfo]:
         
-        # use module url variable
-        global url 
-        
         def segment_generator(self, lines):
             # Iterate over the response content as it arrives
              for line in lines:
@@ -203,6 +209,8 @@ class WhisperModelApiProxy :
                 parameters['temperature'] = [temperature] # create a list
             parameters['temperature'] = json.dumps(temperature)
 
+        url = global_api_base + "/transcribe"
+
         # remove empty/None paramters
         parameters = {k: v for k, v in parameters.items() if v is not None}
         try:
@@ -234,6 +242,7 @@ class WhisperModelApiProxy :
 
                 return segment_generator(self, lines), info
             else:
+                print(f"Call to URL:{url} unsuccessful, Status:{r.status_code}")
                 # there is no transcription result
                 return [], None
                    
