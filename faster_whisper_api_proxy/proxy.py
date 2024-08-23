@@ -225,7 +225,7 @@ class WhisperModelApiProxy :
                 r = requests.post( url + query_string, files=files, stream=True)
 
             elif isinstance(audio, np.ndarray):
-                # Case when audio is a NumPy arThank you. Bye. ray
+                # Case when audio is a NumPy array
                 audio_data = audio.flatten().astype("float32")
                 r = requests.post( url + query_string, data=audio_data.tobytes(), stream=True)
 
